@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 XLog.i("i", "info");
                 XLog.w("w", "msg");
                 XLog.e("e", "error");
+                new MyClass().log();
                 break;
         }
     }

@@ -116,8 +116,8 @@ public class XLog {
         return LOGGING;
     }
 
-    public static void setLoggable(boolean LOGGING) {
-        XLog.LOGGING = LOGGING;
+    public static void setLoggable(boolean l) {
+        XLog.LOGGING = l;
     }
 
     public static boolean isLogClassAndMethod() {
@@ -132,40 +132,40 @@ public class XLog {
         return VERBOSE;
     }
 
-    public static void setVerbose(boolean VERBOSE) {
-        XLog.VERBOSE = VERBOSE;
+    public static void setVerbose(boolean v) {
+        XLog.VERBOSE = v;
     }
 
     public static boolean isDebug() {
         return DEBUG;
     }
 
-    public static void setDebug(boolean DEBUG) {
-        XLog.DEBUG = DEBUG;
+    public static void setDebug(boolean d) {
+        XLog.DEBUG = d;
     }
 
     public static boolean isInfo() {
         return INFO;
     }
 
-    public static void setInfo(boolean INFO) {
-        XLog.INFO = INFO;
+    public static void setInfo(boolean i) {
+        XLog.INFO = i;
     }
 
     public static boolean isWarn() {
         return WARN;
     }
 
-    public static void setWarn(boolean WARN) {
-        XLog.WARN = WARN;
+    public static void setWarn(boolean w) {
+        XLog.WARN = w;
     }
 
     public static boolean isError() {
         return ERROR;
     }
 
-    public static void setError(boolean ERROR) {
-        XLog.ERROR = ERROR;
+    public static void setError(boolean e) {
+        XLog.ERROR = e;
     }
 
     public static void setLogFilter(LogFilter filter) {
