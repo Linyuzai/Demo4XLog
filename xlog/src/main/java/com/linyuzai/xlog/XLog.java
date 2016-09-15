@@ -46,27 +46,32 @@ public class XLog {
 
     private static String[] getClassMethod() {
         StackTraceElement stack[] = Thread.currentThread().getStackTrace();
-        int i = 0;
+        boolean firstFlag = false;
+        boolean secondFlag = false;
         for (StackTraceElement element : stack) {
             String className = element.getClassName();
-            if (i == 2) {
-                return new String[]{className, element.getMethodName()};
-            }
+            String methodName = element.getMethodName();
+            int lineNumber = element.getLineNumber();
+            //Log.e(TAG, className + "," + methodName);
             if (className.startsWith("dalvik") || className.startsWith("java") || className.contains("$override")
                     || className.equals("com.android.tools.fd.runtime.AndroidInstantRuntime")) {
-            } else
-                i++;
-            //Log.e(TAG, element.getClassName() + "," + element.getMethodName());
+            } else if (className.equals("com.linyuzai.xlog.XLog") && methodName.equals("getClassMethod")) {
+                firstFlag = true;
+            } else if (className.equals("com.linyuzai.xlog.XLog") && (methodName.equals("v") || methodName.equals("d")
+                    || methodName.equals("i") || methodName.equals("w") || methodName.equals("e"))) {
+                secondFlag = true;
+            } else if (firstFlag && secondFlag)
+                return new String[]{className, methodName + ">(" + lineNumber + ")"};
         }
         return new String[]{"no class", " no method"};
     }
 
     private static String addClassMethodOnMsg(String msg, String className, String methodName) {
-        String name = className + "-->" + methodName;
+        String name = className + "<" + methodName;
         if (msg == null)
             msg = name;
         else
-            msg = "(" + name + ")" + msg;
+            msg = "[" + name + "]" + msg;
         return msg;
     }
 
