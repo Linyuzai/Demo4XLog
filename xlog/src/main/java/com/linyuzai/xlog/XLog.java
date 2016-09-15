@@ -116,6 +116,11 @@ public class XLog {
         return LOGGING;
     }
 
+    /**
+     * 是否允许log
+     *
+     * @param l
+     */
     public static void setLoggable(boolean l) {
         XLog.LOGGING = l;
     }
@@ -124,6 +129,11 @@ public class XLog {
         return LOG_CLASS_AND_METHOD;
     }
 
+    /**
+     * 是否输出调用类和方法
+     *
+     * @param logClassAndMethod
+     */
     public static void setLogClassAndMethod(boolean logClassAndMethod) {
         LOG_CLASS_AND_METHOD = logClassAndMethod;
     }
@@ -132,6 +142,11 @@ public class XLog {
         return VERBOSE;
     }
 
+    /**
+     * 是否允许log.v
+     *
+     * @param v
+     */
     public static void setVerbose(boolean v) {
         XLog.VERBOSE = v;
     }
@@ -140,6 +155,11 @@ public class XLog {
         return DEBUG;
     }
 
+    /**
+     * 是否允许log.d
+     *
+     * @param d
+     */
     public static void setDebug(boolean d) {
         XLog.DEBUG = d;
     }
@@ -148,6 +168,11 @@ public class XLog {
         return INFO;
     }
 
+    /**
+     * 是否允许log.i
+     *
+     * @param i
+     */
     public static void setInfo(boolean i) {
         XLog.INFO = i;
     }
@@ -156,6 +181,11 @@ public class XLog {
         return WARN;
     }
 
+    /**
+     * 是否允许log.w
+     *
+     * @param w
+     */
     public static void setWarn(boolean w) {
         XLog.WARN = w;
     }
@@ -164,18 +194,36 @@ public class XLog {
         return ERROR;
     }
 
+    /**
+     * 是否允许log.e
+     *
+     * @param e
+     */
     public static void setError(boolean e) {
         XLog.ERROR = e;
     }
 
+    /**
+     * 设置过滤器
+     *
+     * @param filter
+     */
     public static void setLogFilter(LogFilter filter) {
         XLog.filter = filter;
     }
 
+    /**
+     * 设置过滤类，只显示此类的log
+     *
+     * @param filterClass
+     */
     public static void filterClass(Class filterClass) {
         XLog.filterClass = filterClass;
     }
 
+    /**
+     * 重置，重置之后的初始效果和普通Log一样
+     */
     public static void reset() {
         LOGGING = true;
         LOG_CLASS_AND_METHOD = false;
